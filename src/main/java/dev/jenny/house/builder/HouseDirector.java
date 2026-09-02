@@ -17,4 +17,12 @@ public class HouseDirector {
                 .hasPool(false)
                 .hasStatues(false);
     }
+
+    public void constructHouseWithGarden(IHouseBuilder houseBuilder) {
+        houseBuilder
+                .hasGarage(false)
+                .hasGarden(true)
+                .hasPool(false)
+                .hasStatues(false);
+    }
 }
