@@ -74,4 +74,15 @@ public class HouseDirectorTest {
         assertThat(house.getHasPool(), is(equalTo(false)));
         assertThat(house.getHasStatues(), is(equalTo(true)));
     }
+
+    @Test
+    void testConstructLuxuryHouse_ShouldCreateHouseWithAllAttributes() {
+        houseDirector.constructLuxuryHouse(houseBuilder);
+        House house = houseBuilder.build();
+
+        assertThat(house.getHasGarage(), is(equalTo(true)));
+        assertThat(house.getHasGarden(), is(equalTo(true)));
+        assertThat(house.getHasPool(), is(equalTo(true)));
+        assertThat(house.getHasStatues(), is(equalTo(true)));
+    }
 }
