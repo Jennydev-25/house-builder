@@ -7,6 +7,9 @@ public class House {
     private Boolean hasPool;
     private Boolean hasStatues;
 
+    public House() {
+    }
+
     public House(Boolean hasGarage, Boolean hasGarden, Boolean hasPool, Boolean hasStatues) {
         this.hasGarage = hasGarage;
         this.hasGarden = hasGarden;
@@ -29,4 +32,21 @@ public class House {
     public Boolean getHasStatues() {
         return hasStatues;
     }
+
+    public void setHasGarage(Boolean hasGarage) {
+        this.hasGarage = hasGarage;
+    }
+
+    public void setHasGarden(Boolean hasGarden) {
+        this.hasGarden = hasGarden;
+    }
+
+    public void setHasPool(Boolean hasPool) {
+        this.hasPool = hasPool;
+    }
+
+    public void setHasStatues(Boolean hasStatues) {
+        this.hasStatues = hasStatues;
+    }
+
 }
