@@ -6,6 +6,14 @@ Proyecto en **Java 21** con **Maven** que aplica el patrón de diseño **Builder
 
 ---
 
+## 📸 Vista previa
+
+| Test | Cobertura |
+| :---: | :---: |
+| ![Tests en verde](assets/images/test-explorer/test-screenshot.png) | ![Cobertura JaCoCo](assets/images/coverage/coverage-screenshot.png) |
+
+---
+
 ## 📑 Índice
 
 - [Descripción](#-descripción)
@@ -13,7 +21,9 @@ Proyecto en **Java 21** con **Maven** que aplica el patrón de diseño **Builder
 - [Estructura del repositorio](#-estructura-del-repositorio)
 - [Diagrama de clases](#-diagrama-de-clases)
 - [Testing](#-testing)
+- [Cobertura de tests](#-cobertura-de-tests-coverage)
 - [Tecnologías](#-tecnologías)
+- [Recursos](#-recursos)
 - [Autora](#-autora)
 
 ---
@@ -231,6 +241,20 @@ Las tres clases del proyecto no tienen lógica condicional (`if`/`else`, bucles.
 - **[Visual Studio Code](https://code.visualstudio.com/)** — Editor usado para desarrollar y gestionar el proyecto
 - **[Markdown](https://www.markdownguide.org/)** — Lenguaje de marcado para el README
 - **[Git](https://git-scm.com/)** / **[GitHub](https://github.com/)** — Control de versiones y alojamiento del proyecto
+
+[Volver al índice](#-índice)
+
+---
+
+## 📚 Recursos
+
+- **[Builder — Refactoring Guru](https://refactoring.guru/es/design-patterns/builder)** — Documentación oficial del patrón
+- **[Builder in Java — Refactoring Guru](https://refactoring.guru/es/design-patterns/builder/java/example)** — Ejemplo de implementación en Java, seguido para diseñar `HouseDirector`
+- **[Mermaid – Class Diagrams](https://mermaid.js.org/syntax/classDiagram.html)** — Documentación de Mermaid para el diagrama de clases
+- **[JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)** — Documentación oficial de JUnit 5
+- **[Parameterized Tests in JUnit 5 (Baeldung)](https://www.baeldung.com/parameterized-tests-junit-5)** — Patrón aplicado en `HouseBuilderTest` con `@ParameterizedTest` + `@MethodSource`
+- **[Hamcrest – JavaHamcrest](https://hamcrest.org/JavaHamcrest/)** — Documentación de los matchers usados en las aserciones
+- **[JaCoCo Maven Plugin](https://www.jacoco.org/jacoco/trunk/doc/maven.html)** — Configuración del plugin y de los umbrales de cobertura en el `pom.xml`
 
 ---
 
