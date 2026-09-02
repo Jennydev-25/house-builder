@@ -10,6 +10,7 @@ Proyecto en **Java 21** con **Maven** que aplica el patrón de diseño **Builder
 
 - [Descripción](#-descripción)
 - [Cómo reproducir el proyecto](#-cómo-reproducir-el-proyecto)
+- [Estructura del repositorio](#-estructura-del-repositorio)
 - [Tecnologías](#-tecnologías)
 - [Autora](#-autora)
 
@@ -78,6 +79,34 @@ mvn test
 ```
 
 El reporte de cobertura se genera en `target/site/jacoco/index.html`, que puedes abrir en el navegador.
+
+[Volver al índice](#-índice)
+
+---
+
+## 📁 Estructura del repositorio
+
+```text
+house-builder/
+├── src/
+│   ├── main/java/dev/jenny/house/
+│   │   ├── models/
+│   │   │   └── House.java
+│   │   └── builder/
+│   │       ├── IHouseBuilder.java
+│   │       ├── HouseBuilder.java
+│   │       └── HouseDirector.java
+│   └── test/java/dev/jenny/house/
+│       ├── models/
+│       │   └── HouseTest.java
+│       └── builder/
+│           ├── HouseBuilderTest.java
+│           └── HouseDirectorTest.java
+├── .editorconfig
+├── .gitignore
+├── pom.xml
+└── README.md
+```
 
 [Volver al índice](#-índice)
 
