@@ -30,4 +30,15 @@ public class HouseDirectorTest {
         assertThat(house.getHasPool(), is(equalTo(false)));
         assertThat(house.getHasStatues(), is(equalTo(false)));
     }
+
+    @Test
+    void testConstructHouseWithGarage_ShouldCreateHouseWithOnlyGarage() {
+        houseDirector.constructHouseWithGarage(houseBuilder);
+        House house = houseBuilder.build();
+
+        assertThat(house.getHasGarage(), is(equalTo(true)));
+        assertThat(house.getHasGarden(), is(equalTo(false)));
+        assertThat(house.getHasPool(), is(equalTo(false)));
+        assertThat(house.getHasStatues(), is(equalTo(false)));
+    }
 }
