@@ -10,4 +10,11 @@ public class HouseDirector {
                 .hasStatues(false);
     }
 
+    public void constructHouseWithGarage(IHouseBuilder houseBuilder) {
+        houseBuilder
+                .hasGarage(true)
+                .hasGarden(false)
+                .hasPool(false)
+                .hasStatues(false);
+    }
 }
