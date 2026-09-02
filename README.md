@@ -12,6 +12,7 @@ Proyecto en **Java 21** con **Maven** que aplica el patrón de diseño **Builder
 - [Cómo reproducir el proyecto](#-cómo-reproducir-el-proyecto)
 - [Estructura del repositorio](#-estructura-del-repositorio)
 - [Diagrama de clases](#-diagrama-de-clases)
+- [Testing](#-testing)
 - [Tecnologías](#-tecnologías)
 - [Autora](#-autora)
 
@@ -46,11 +47,11 @@ Los métodos del director son `void` y reciben el builder como parámetro en vez
 
 ### Requisitos previos
 
-| Herramienta                                                   | Requisito                | Guía de instalación                                                                                       |
-| ------------------------------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------- |
-| [JDK 21](https://www.oracle.com/java/technologies/downloads/) | Instalado y en el `PATH` | [Ver guía](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html)              |
-| [Apache Maven](https://maven.apache.org/download.cgi)         | Instalado y en el `PATH` | [Ver guía](https://maven.apache.org/install.html)                                                         |
-| [Git](https://git-scm.com/downloads)                          | Instalado y en el `PATH` | [Ver guía](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git) |
+| Herramienta | Requisito | Guía de instalación |
+| --- | --- | --- |
+| [JDK 21](https://www.oracle.com/java/technologies/downloads/) | Instalado y en el `PATH` | [Ver guía](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html) |
+| [Apache Maven](https://maven.apache.org/download.cgi) | Instalado y en el `PATH` | [Ver guía](https://maven.apache.org/install.html) |
+| [Git](https://git-scm.com/downloads) | Instalado y en el `PATH` | [Ver guía](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git) |
 
 ### Pasos
 
@@ -89,6 +90,10 @@ El reporte de cobertura se genera en `target/site/jacoco/index.html`, que puedes
 
 ```text
 house-builder/
+├── assets/
+│   └── images/
+│       └── test-explorer/
+│           └── test-screenshot.png
 ├── src/
 │   ├── main/java/dev/jenny/house/
 │   │   ├── models/
@@ -166,6 +171,29 @@ classDiagram
 
 </details>
 <br>
+
+[Volver al índice](#-índice)
+
+---
+
+## 🧪 Testing
+
+Siguiendo la metodología **TDD**, cada clase se testea cubriendo los escenarios que le corresponden, con **JUnit 5 + Hamcrest**.
+
+![Tests en verde en el Test Explorer](assets/images/test-explorer/test-screenshot.png)
+
+| Clase | Escenario | Casos |
+| --- | --- | --- |
+| `HouseTest` | Inicializa los cuatro atributos con los valores recibidos | 1 |
+| `HouseBuilderTest` | Construye una `House` combinando garaje, jardín, piscina y estatuas, y verifica que cada atributo del resultado coincide con lo indicado al builder | 4 (parametrizado) |
+| `HouseDirectorTest` | Ninguna característica activada | 1 |
+| `HouseDirectorTest` | Solo el garaje activado | 1 |
+| `HouseDirectorTest` | Solo el jardín activado | 1 |
+| `HouseDirectorTest` | Solo la piscina activada | 1 |
+| `HouseDirectorTest` | Solo las estatuas activadas | 1 |
+| `HouseDirectorTest` | Las cuatro características activadas | 1 |
+
+> **Nota:** el Test Explorer de VS Code muestra 13/13 porque cuenta los tests parametrizados de otra forma; el número real de tests ejecutados, según Maven Surefire, es 11.
 
 [Volver al índice](#-índice)
 
