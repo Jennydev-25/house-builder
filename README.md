@@ -11,6 +11,7 @@ Proyecto en **Java 21** con **Maven** que aplica el patrón de diseño **Builder
 - [Descripción](#-descripción)
 - [Cómo reproducir el proyecto](#-cómo-reproducir-el-proyecto)
 - [Estructura del repositorio](#-estructura-del-repositorio)
+- [Diagrama de clases](#-diagrama-de-clases)
 - [Tecnologías](#-tecnologías)
 - [Autora](#-autora)
 
@@ -35,7 +36,7 @@ A esto se suma un `HouseDirector`, que aplica la forma completa del patrón Buil
 - `constructHouseWithGarage`, `constructHouseWithGarden`, `constructHouseWithPool`, `constructHouseWithStatues` — una característica cada uno
 - `constructLuxuryHouse` — las cuatro características
 
-Los métodos del Director son `void` y reciben el builder como parámetro en vez de guardarlo en una instancia fija — así el Director no queda acoplado a un builder concreto, y puede recibir cualquiera que implemente `IHouseBuilder`. El resultado se obtiene aparte, llamando a `.build()` después de invocar la receta.
+Los métodos del director son `void` y reciben el builder como parámetro en vez de guardarlo en una instancia fija. Así, el director no queda acoplado a un builder concreto, y puede recibir cualquiera que implemente `IHouseBuilder`. El resultado se obtiene aparte, llamando a `.build()` después de invocar la combinación.
 
 [Volver al índice](#-índice)
 
@@ -107,6 +108,64 @@ house-builder/
 ├── pom.xml
 └── README.md
 ```
+
+[Volver al índice](#-índice)
+
+---
+
+## 📐 Diagrama de clases
+
+Diagrama de clases para representar la relación entre las cuatro piezas del patrón Builder:
+
+- `House` — el producto, un objeto de configuración con cuatro atributos booleanos
+- `IHouseBuilder` — el contrato, define las operaciones para construir un `House` paso a paso
+- `HouseBuilder` — la implementación, guarda internamente la instancia de `House` que va construyendo
+- `HouseDirector` — las combinaciones, no guarda ningún builder como campo, lo recibe como parámetro en cada una
+
+<details>
+<summary>Ver diagrama en Mermaid</summary>
+
+```mermaid
+classDiagram
+    class House {
+        +hasGarage: Boolean
+        +hasGarden: Boolean
+        +hasPool: Boolean
+        +hasStatues: Boolean
+    }
+
+    class IHouseBuilder {
+        +hasGarage(Boolean) HouseBuilder
+        +hasGarden(Boolean) HouseBuilder
+        +hasPool(Boolean) HouseBuilder
+        +hasStatues(Boolean) HouseBuilder
+        +build() House
+    }
+
+    class HouseBuilder {
+        +hasGarage(Boolean) HouseBuilder
+        +hasGarden(Boolean) HouseBuilder
+        +hasPool(Boolean) HouseBuilder
+        +hasStatues(Boolean) HouseBuilder
+        +build() House
+    }
+
+    class HouseDirector {
+        +constructBasicHouse(IHouseBuilder) void
+        +constructHouseWithGarage(IHouseBuilder) void
+        +constructHouseWithGarden(IHouseBuilder) void
+        +constructHouseWithPool(IHouseBuilder) void
+        +constructHouseWithStatues(IHouseBuilder) void
+        +constructLuxuryHouse(IHouseBuilder) void
+    }
+
+    IHouseBuilder <|-- HouseBuilder
+    HouseBuilder --> House
+    HouseDirector o-- IHouseBuilder
+```
+
+</details>
+<br>
 
 [Volver al índice](#-índice)
 
