@@ -27,6 +27,16 @@ Cada casa se construye combinando estas características:
 
 El builder se implementa mediante una interfaz (`IHouseBuilder`), con `HouseBuilder` como única implementación concreta.
 
+A esto se suma un `HouseDirector`, que aplica la forma completa del patrón Builder tal y como la explica la documentación oficial. Aunque no es estrictamente obligatorio, encapsula las combinaciones de características más habituales en métodos con nombre, dejando el código cliente más simple:
+
+- `constructBasicHouse` — ninguna característica
+- `constructHouseWithGarage`, `constructHouseWithGarden`, `constructHouseWithPool`, `constructHouseWithStatues` — una característica cada uno
+- `constructLuxuryHouse` — las cuatro características
+
+Los métodos del Director son `void` y reciben el builder como parámetro en vez de guardarlo en una instancia fija — así el Director no queda acoplado a un builder concreto, y puede recibir cualquiera que implemente `IHouseBuilder`. El resultado se obtiene aparte, llamando a `.build()` después de invocar la receta.
+
+[Volver al índice](#-índice)
+
 ---
 
 ## 🛠️ Tecnologías
@@ -46,4 +56,4 @@ El builder se implementa mediante una interfaz (`IHouseBuilder`), con `HouseBuil
 
 **[Jenny Sánchez Requejo](https://github.com/Jennydev-25)**
 
-[Volver arriba](#-house-builder-en-java)
+[Volver arriba](#-house-builder)
