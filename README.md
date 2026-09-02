@@ -92,6 +92,8 @@ El reporte de cobertura se genera en `target/site/jacoco/index.html`, que puedes
 house-builder/
 ├── assets/
 │   └── images/
+│       ├── coverage/
+│       │   └── coverage-screenshot.png
 │       └── test-explorer/
 │           └── test-screenshot.png
 ├── src/
@@ -194,6 +196,26 @@ Siguiendo la metodología **TDD**, cada clase se testea cubriendo los escenarios
 | `HouseDirectorTest` | Las cuatro características activadas | 1 |
 
 > **Nota:** el Test Explorer de VS Code muestra 13/13 porque cuenta los tests parametrizados de otra forma; el número real de tests ejecutados, según Maven Surefire, es 11.
+
+[Volver al índice](#-índice)
+
+---
+
+## 📈 Cobertura de tests (coverage)
+
+Reporte generado con **JaCoCo** tras ejecutar `mvn test`. El informe HTML se genera en `target/site/jacoco/index.html`.
+
+![Cobertura de tests con JaCoCo](assets/images/coverage/coverage-screenshot.png)
+
+| Métrica | Cobertura |
+| --- | --- |
+| Instrucciones | 100 % (174 de 174) |
+| Ramas | n/a (0 de 0) |
+| Líneas | 100 % (69 de 69) |
+| Métodos | 100 % (23 de 23) |
+| Clases analizadas | 3 |
+
+Las tres clases del proyecto no tienen lógica condicional (`if`/`else`, bucles...), solo asignaciones y llamadas a métodos. Por eso JaCoCo no reporta ninguna rama.
 
 [Volver al índice](#-índice)
 
